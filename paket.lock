@@ -1,1 +1,12 @@
-
+NUGET
+  remote: https://www.nuget.org/api/v2
+    log4net (2.0.5)
+    Ninject (3.2.2)
+    NUnit (3.4.1)
+    Topshelf (4.0.1)
+    Topshelf.Log4Net (4.0.1)
+      log4net (>= 2.0.5)
+      Topshelf (>= 4.0.1)
+    Topshelf.Ninject (0.4)
+      Ninject (>= 3.2.2)
+      Topshelf (>= 3.2)
