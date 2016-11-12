@@ -61,6 +61,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActivityTracker.EventStore\ActivityTracker.EventStore.csproj">
+      <Project>{dc5ee17a-de0e-4e65-bbe5-7d7235dd6f55}</Project>
+      <Name>ActivityTracker.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ActivityTracker.Events\ActivityTracker.Events.csproj">
+      <Project>{cfb42c3c-b457-4ff8-8ce9-786e23af3a81}</Project>
+      <Name>ActivityTracker.Events</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
