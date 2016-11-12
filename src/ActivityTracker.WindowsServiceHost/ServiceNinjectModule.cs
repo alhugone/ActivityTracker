@@ -1,8 +1,7 @@
 ﻿using ActivityTracker.EventStore;
 using Ninject.Modules;
-using System;
 
-namespace ActivityTrackerWindowsService
+namespace ActivityTracker.WindowsServiceHost
 {
     internal class ServiceNinjectModule : NinjectModule
     {

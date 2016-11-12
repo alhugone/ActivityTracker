@@ -1,7 +1,7 @@
 ﻿using Topshelf;
 using Topshelf.Ninject;
 
-namespace ActivityTrackerWindowsService
+namespace ActivityTracker.WindowsServiceHost
 {
     class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace ActivityTrackerWindowsService
+﻿namespace ActivityTracker.WindowsServiceHost
 {
     internal interface IActivityTrackerService
     {
