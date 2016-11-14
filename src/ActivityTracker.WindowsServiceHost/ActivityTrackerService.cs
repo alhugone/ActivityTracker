@@ -13,32 +13,32 @@ namespace ActivityTracker.WindowsServiceHost
         }
         public void OnStart()
         {
-            _eventStore.Store(new ServiceStartedEvent());
+            _eventStore.Store(new ServiceStartedActivityEvent());
         }
 
         public void OnStop()
         {
-            _eventStore.Store(new ServiceStoppedEvent());
+            _eventStore.Store(new ServiceStoppedActivityEvent());
         }
 
         public void OnLogon()
         {
-            _eventStore.Store(new UserLogonEvent());
+            _eventStore.Store(new UserLogonActivityEvent());
         }
 
         public void OnLogoff()
         {
-            _eventStore.Store(new UserLogoffEvent());
+            _eventStore.Store(new UserLogoffActivityEvent());
         }
 
         public void Unlock()
         {
-            _eventStore.Store(new UserLockSessionEvent());
+            _eventStore.Store(new UserLockSessionActivityEvent());
         }
 
         public void OnLock()
         {
-            _eventStore.Store(new UserUnlockSessionEvent());
+            _eventStore.Store(new UserUnlockSessionActivityEvent());
         }
     }
 }

@@ -15,9 +15,9 @@ namespace ActivityTracker.EventStore
 
         public LoggingEventStoreDecorator(IEventStore eventStore) : this(eventStore, null) { }
 
-        public void Store(IEvent @event)
+        public void Store(IActivityEvent activityEvent)
         {
-            _log.Debug($"Event {@event.GetType().Name} : {@event.Timestamp} stored.");
+            _log.Debug($"Event {activityEvent.GetType().Name} : {activityEvent.Timestamp} stored.");
         }
     }
 }

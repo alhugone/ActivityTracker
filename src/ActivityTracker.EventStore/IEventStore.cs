@@ -4,6 +4,6 @@ namespace ActivityTracker.EventStore
 {
     public interface IEventStore
     {
-        void Store(IEvent @event);
+        void Store(IActivityEvent activityEvent);
     }
 }

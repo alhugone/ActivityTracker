@@ -2,7 +2,7 @@
 
 namespace ActivityTracker.Events
 {
-    public abstract class Event : IEvent
+    public abstract class ActivityEvent : IActivityEvent
     {
         public DateTimeOffset Timestamp { get; } = DateTimeOffset.Now;
     }

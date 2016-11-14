@@ -2,7 +2,7 @@
 
 namespace ActivityTracker.Events
 {
-    public interface IEvent
+    public interface IActivityEvent
     {
         DateTimeOffset Timestamp { get; }
     }

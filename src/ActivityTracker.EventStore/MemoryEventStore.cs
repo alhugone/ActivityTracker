@@ -5,10 +5,10 @@ namespace ActivityTracker.EventStore
 {
     public class MemoryEventStore : IEventStore
     {
-        protected LinkedList<IEvent> _events = new LinkedList<IEvent>();
-        public void Store(IEvent @event)
+        protected LinkedList<IActivityEvent> _events = new LinkedList<IActivityEvent>();
+        public void Store(IActivityEvent activityEvent)
         {
-            _events.AddLast(@event);
+            _events.AddLast(activityEvent);
         }
     }
 }
