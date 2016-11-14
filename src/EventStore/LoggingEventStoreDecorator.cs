@@ -1,7 +1,8 @@
 ﻿using ActivityTracker.Events;
+using ActivityTracker.EventStore;
 using log4net;
 
-namespace ActivityTracker.EventStore
+namespace EventStore
 {
     public class LoggingEventStoreDecorator : IEventStore
     {

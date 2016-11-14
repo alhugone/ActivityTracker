@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{570406EA-4736-4A11-BB0C-0B4CD7CF6BFE}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{F58303B1-B64E-46F6-BB55-A97C950F5C83}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ActivityTracker.WindowsServiceHost</RootNamespace>
-    <AssemblyName>ActivityTracker.WindowsServiceHost</AssemblyName>
+    <RootNamespace>AppConfiguration.Ninject</RootNamespace>
+    <AssemblyName>AppConfiguration.Ninject</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,10 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,28 +34,38 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceNinjectModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="paket.references">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="log4net.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\ActivityTracker.EventStore\ActivityTracker.EventStore.csproj">
+      <Project>{dc5ee17a-de0e-4e65-bbe5-7d7235dd6f55}</Project>
+      <Name>ActivityTracker.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ActivityTracker.Events\ActivityTracker.Events.csproj">
+      <Project>{cfb42c3c-b457-4ff8-8ce9-786e23af3a81}</Project>
+      <Name>ActivityTracker.Events</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ActivityTracker.Service\ActivityTracker.Service.csproj">
-      <Project>{71F703B5-C5F7-40E6-917C-8112BFE79499}</Project>
+      <Project>{71f703b5-c5f7-40e6-917c-8112bfe79499}</Project>
       <Name>ActivityTracker.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AppConfiguration.Ninject\AppConfiguration.Ninject.csproj">
-      <Project>{f58303b1-b64e-46f6-bb55-a97c950f5c83}</Project>
-      <Name>AppConfiguration.Ninject</Name>
+    <ProjectReference Include="..\FileEventStore\FileEventStore.csproj">
+      <Project>{0d576b69-c99d-483a-bb21-85bc529c4a68}</Project>
+      <Name>FileEventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MemoryEventStore\MemoryEventStore.csproj">
+      <Project>{8dab1d1f-f5c3-46b6-a0e0-65d8c36cd0ca}</Project>
+      <Name>MemoryEventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToLog4NetEventStore\ToLog4NetEventStore.csproj">
+      <Project>{b05699da-e0a3-424a-b0c5-cf426ec03b4b}</Project>
+      <Name>ToLog4NetEventStore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

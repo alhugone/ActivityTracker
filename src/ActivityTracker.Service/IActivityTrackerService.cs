@@ -1,6 +1,6 @@
-﻿namespace ActivityTracker.WindowsServiceHost
+﻿namespace ActivityTracker.Service
 {
-    internal interface IActivityTrackerService
+    public interface IActivityTrackerService
     {
         void OnStart();
         void OnStop();

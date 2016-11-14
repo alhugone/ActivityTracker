@@ -1,4 +1,6 @@
-﻿using Topshelf;
+﻿using ActivityTracker.Service;
+using AppConfiguration.Ninject;
+using Topshelf;
 using Topshelf.Ninject;
 
 namespace ActivityTracker.WindowsServiceHost

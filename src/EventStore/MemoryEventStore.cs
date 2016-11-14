@@ -1,7 +1,8 @@
-﻿using ActivityTracker.Events;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ActivityTracker.Events;
+using ActivityTracker.EventStore;
 
-namespace ActivityTracker.EventStore
+namespace EventStore
 {
     public class MemoryEventStore : IEventStore
     {

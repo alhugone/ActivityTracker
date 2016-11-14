@@ -1,9 +1,11 @@
 ﻿using ActivityTracker.EventStore;
+using ActivityTracker.Service;
 using Ninject.Modules;
+using ToLog4NetEventStore;
 
-namespace ActivityTracker.WindowsServiceHost
+namespace AppConfiguration.Ninject
 {
-    internal class ServiceNinjectModule : NinjectModule
+    public class ServiceNinjectModule : NinjectModule
     {
         public ServiceNinjectModule()
         {
@@ -12,7 +14,7 @@ namespace ActivityTracker.WindowsServiceHost
         public override void Load()
         {
             Bind<IActivityTrackerService>().To<ActivityTrackerService>();
-            Bind<IEventStore>().To<MemoryEventStore>().WhenInjectedInto<LoggingEventStoreDecorator>();
+            Bind<IEventStore>().To<MemoryEventStore.MemoryEventStore>().WhenInjectedInto<LoggingEventStoreDecorator>();
             Bind<IEventStore>().To<LoggingEventStoreDecorator>();
         }
     }

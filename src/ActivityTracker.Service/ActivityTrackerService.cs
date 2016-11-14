@@ -1,9 +1,9 @@
 ﻿using ActivityTracker.Events;
 using ActivityTracker.EventStore;
 
-namespace ActivityTracker.WindowsServiceHost
+namespace ActivityTracker.Service
 {
-    internal class ActivityTrackerService : IActivityTrackerService
+    public class ActivityTrackerService : IActivityTrackerService
     {
         private static IEventStore _eventStore;
 
