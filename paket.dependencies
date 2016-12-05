@@ -1,5 +1,6 @@
 source https://www.nuget.org/api/v2
 nuget log4net
+nuget Newtonsoft.Json framework: >= net45
 nuget ninject
 nuget nunit
 nuget TopShelf
