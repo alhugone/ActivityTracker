@@ -1,11 +1,10 @@
 ﻿using ActivityTracker.EventStore;
 using ActivityTracker.Service;
-using Ninject.Modules;
 using ToLog4NetEventStore;
 
 namespace AppConfiguration.Ninject
 {
-    public abstract class ServiceNinjectModule : NinjectModule
+    public class DevEnvServiceNinjectModule : ServiceNinjectModule
     {
         public override void Load()
         {

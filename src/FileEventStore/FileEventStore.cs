@@ -1,6 +1,8 @@
 ﻿using ActivityTracker.Events;
 using ActivityTracker.EventStore;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace FileEventStore
@@ -17,13 +19,25 @@ namespace FileEventStore
 
         private void Validate(string rootPath)
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(rootPath));
-            File.Create(rootPath, 512, FileOptions.SequentialScan | FileOptions.WriteThrough);
+            if (!File.Exists(rootPath))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(rootPath));
+                File.Create(rootPath,
+                    512,
+                    FileOptions.SequentialScan | FileOptions.WriteThrough).Close();
+            }
         }
 
         public void Store(IActivityEvent activityEvent)
         {
-            File.AppendAllText(_fileFullPath, JsonConvert.SerializeObject(activityEvent));
+            try
+            {
+                File.AppendAllLines(_fileFullPath, new List<string> { JsonConvert.SerializeObject(activityEvent) });
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
         }
     }
 }

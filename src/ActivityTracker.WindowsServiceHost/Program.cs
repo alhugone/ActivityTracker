@@ -9,6 +9,11 @@ namespace ActivityTracker.WindowsServiceHost
     {
         static void Main(string[] args)
         {
+            Run();
+        }
+
+        private static void Run()
+        {
             HostFactory.Run(x =>
             {
                 x.Service<IActivityTrackerService>(sc =>
@@ -18,10 +23,17 @@ namespace ActivityTracker.WindowsServiceHost
                     sc.WhenStopped(s => s.OnStop());
                     sc.WhenSessionChanged(OnSessionChanged);
                 });
-                x.UseNinject(new ServiceNinjectModule());
+                ConfigureNinject(x);
+                x.EnableSessionChanged();
                 x.UseLog4Net("log4net.xml");
                 x.SetServiceName("ActivityTracker");
             });
+        }
+
+        private static void ConfigureNinject(Topshelf.HostConfigurators.HostConfigurator x)
+        {
+            var config = AppConfigFactory.ReadFromConfig();
+            x.UseNinject(new TestEnvServiceNinjectModule(config.FileStorePath));
         }
 
         private static void OnSessionChanged(IActivityTrackerService trackerService, HostControl host, SessionChangedArguments arg)

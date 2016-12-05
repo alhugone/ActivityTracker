@@ -18,6 +18,7 @@ namespace ToLog4NetEventStore
 
         public void Store(IActivityEvent activityEvent)
         {
+            _eventStore.Store(activityEvent);
             _log.Debug($"Event {activityEvent.GetType().Name} : {activityEvent.Timestamp} stored.");
         }
     }
