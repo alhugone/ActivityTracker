@@ -21,6 +21,7 @@ namespace AppConfiguration.Ninject
                 .WhenInjectedInto<LoggingEventStoreDecorator>()
                 .WithConstructorArgument(_eventStoreFullPath);
             Bind<IEventStore>().To<LoggingEventStoreDecorator>();
+            Bind<IDateTimeOffsetFactory>().To<DateTimeOffsetProvider>();
         }
     }
 }
