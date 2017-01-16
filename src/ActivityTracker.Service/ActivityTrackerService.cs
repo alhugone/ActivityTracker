@@ -43,5 +43,10 @@ namespace ActivityTracker.Service
         {
             _eventStore.Store(new UserLockSessionActivityEvent(_dateTimeOffsetFactory.Now));
         }
+
+        public void OnShutdown()
+        {
+            _eventStore.Store(new MachineShutdownActivityEvent(_dateTimeOffsetFactory.Now));
+        }
     }
 }

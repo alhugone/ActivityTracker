@@ -8,5 +8,6 @@
         void OnLogoff();
         void Unlock();
         void OnLock();
+        void OnShutdown();
     }
 }

@@ -22,6 +22,7 @@ namespace ActivityTracker.WindowsServiceHost
                     sc.WhenStarted(s => s.OnStart());
                     sc.WhenStopped(s => s.OnStop());
                     sc.WhenSessionChanged(OnSessionChanged);
+                    sc.WhenShutdown(s => s.OnShutdown());
                 });
                 ConfigureNinject(x);
                 x.EnableSessionChanged();
