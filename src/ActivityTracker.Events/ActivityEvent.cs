@@ -4,6 +4,11 @@ namespace ActivityTracker.Events
 {
     public abstract class ActivityEvent : IActivityEvent
     {
-        public DateTimeOffset Timestamp { get; } = DateTimeOffset.Now;
+        protected ActivityEvent(DateTimeOffset dateTimeOffset)
+        {
+            Timestamp = dateTimeOffset;
+        }
+
+        public DateTimeOffset Timestamp { get; }
     }
 }
