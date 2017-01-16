@@ -27,6 +27,8 @@ namespace ActivityTracker.WindowsServiceHost
                 x.EnableSessionChanged();
                 x.UseLog4Net("log4net.xml");
                 x.SetServiceName("ActivityTracker");
+                x.SetDisplayName("ActivityTracker");
+                x.SetDescription("Track Logged User activities - like login/logout");
             });
         }
 
