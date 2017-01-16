@@ -35,7 +35,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityTrackerService.cs" />
+    <Compile Include="DateTimeOffsetProvider.cs" />
     <Compile Include="IActivityTrackerService.cs" />
+    <Compile Include="IDateTimeOffsetFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
